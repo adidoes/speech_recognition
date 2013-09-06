@@ -31,17 +31,23 @@ import sys
 import os
 import subprocess
 
+globalPopenList = []
 
 class Commands:
 	name = "Commands"
-	
+	id = ['lux','lacer','alexia','computer','pi','schatz']
+
+
 	commands = {
 		'mute': ['amixer','set','Master','toggle'] #Hier sollte der command in der formatierung fuer subprocess.Popen() stehen
 		}
 
 	def parse(self,word):
-		if word in self.commands:
-			return self.commands[word]
+		
+		if word[0] in id:
+			pass
+		else:
+			globalPopenList.append(subprocess.Popen(
 
 class CommandAndControl:
 	
@@ -71,7 +77,7 @@ class CommandAndControl:
 		
 		# Execute the command, if recognized/supported
 		print params
-		command = self.cmd.parse(params[1])
+		command = self.cmd.parse(params)
 		if command:
 #			os.system(command)
 			print "erkannt", command
