@@ -159,7 +159,7 @@
                         # AIFF,AU (with libsndfile extension)
 			# other than 16kHz, sampling rate should be specified
 			# by "-smpFreq" option
-#-input mic             # direct microphone input
+-input mic             # direct microphone input
 			# device name can be specified via env. val. "AUDIODEV"
 #-input netaudio -NA host:0    # direct input from DatLink(NetAudio) host
 #-input adinnet -adport portnum # via adinnet network client
