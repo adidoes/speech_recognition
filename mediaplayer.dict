@@ -3,16 +3,42 @@
 2	[ERROR]	ax
 2	[ERROR]	m
 2	[ERROR]	eh
-2	[COMPUTER]	k ax m p y uw t ax
+2	[ERROR]	s
+2	[ERROR]	ow
+2	[ERROR]	k
+2	[ERROR]	t
 2	[LUX]	l uh k s
 2	[ALEXIA]	ae l ax k s iy ax
+2	[PI]	p ay
 3	[PLAY]	p l ey
 3	[NEXT]	n eh k s t
 3	[PREV]	p r iy v
-3	[MUTE]	m y uw
-3	[SHOW]	sh ow
 3	[PAUSE]	p ao z
-3	[SILENCE]	s ay l ax n s
-3	[VOLUME]	v aa l y uw m
-4	[UP]	ah p
-4	[DOWN]	d aw n
+3	[STOP]	s t aa p
+4	[MUTE]	m y uw
+4	[MUTE]	s ay l ax n s
+4	[MUTE]	sh ah t ax b
+5	[SET]	s eh t
+5	[TOGGLE]	t aa g ax l
+5	[MUSIC]	m y uw z ix k
+6	[VOLUME]	v aa l y uw m
+7	[UP]	ah p
+7	[DOWN]	d aw n
+8	[ONE]	w ah n
+9	[HUNDRET]	hh ah n d r ax d
+10	[FIVE]	f ay v
+11	[ONE]	w ah n
+11	[TWO]	t uw
+11	[THREE]	th r iy
+11	[FOUR]	f ao r
+11	[FIVE]	f ay v
+11	[TEN]	t eh n
+11	[FIFTEEN]	f ix f t iy n
+12	[TWENTY]	t w eh n t iy
+12	[THIRTY]	th er dx iy
+12	[FORTY]	f ao r dx iy
+12	[FIFTY]	f ih f t iy
+12	[SIXTY]	s ih k s t iy
+12	[SEVENTY]	s eh v ax n t iy
+12	[EIGHTY]	ey dx iy
+12	[NINTY]	n ay n t iy

@@ -4,25 +4,65 @@
 % NS_E
 </s> sil
 
-% ID
-ERROR                           ax
-ERROR                           m
-ERROR                           eh
-COMPUTER                        k ax m p y uw t ax
-LUX                             l uh k s
-ALEXIA                          ae l ax k s iy ax
+% IDENTIFICATION
+ERROR ax
+ERROR m
+ERROR eh
+ERROR s
+ERROR ow
+ERROR k
+ERROR t
+LUX l uh k s
+ALEXIA ae l ax k s iy ax
+PI p ay
 
-% ACTIONS
+% MPC_COMMANDS
 PLAY p l ey
 NEXT n eh k s t
 PREV p r iy v
-MUTE m y uw
-SHOW sh ow
 PAUSE p ao z
-SILENCE s ay l ax n s
+STOP s t aa p
+
+% MUTE
+MUTE m y uw
+MUTE s ay l ax n s
+MUTE sh ah t ax b
+
+% SET
+SET s eh t
+TOGGLE t aa g ax l
+MUSIC m y uw z ix k
+
+% VOLUME
 VOLUME v aa l y uw m
 
-% VOLUME_ARGUMENTS
+% DIRECTIONAL_COMMANDS
 UP ah p
 DOWN d aw n
 
+% ONE
+ONE w ah n
+% HUNDRET
+HUNDRET hh ah n d r ax d
+
+% FIVE
+FIVE f ay v
+
+% FIVE_NUMBERS
+ONE w ah n
+TWO t uw
+THREE th r iy
+FOUR f ao r
+FIVE f ay v
+TEN t eh n
+FIFTEEN f ix f t iy n
+
+% TEN_NUMBERS
+TWENTY t w eh n t iy 
+THIRTY th er dx iy
+FORTY f ao r dx iy
+FIFTY f ih f t iy
+SIXTY s ih k s t iy
+SEVENTY s eh v ax n t iy
+EIGHTY ey dx iy
+NINTY n ay n t iy
