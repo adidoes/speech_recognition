@@ -58,7 +58,6 @@ class Commands:
 		if word[0] == 'error':
 			return None
 		if str(word[0]) in self.ids:
-			
 #MUTE
 			if 'mute' in word:
 				return ['amixer','set','Master','toggle']
@@ -175,34 +174,33 @@ class Commands:
 					return ['mpc','stop']
 
 
-		if 'shut' in word:
-			if 'down' in word:
-				shutdownWarning="Warning system is going down for halt."
-				print("\a\a\a")
-				try:
-					p= subprocess.Popen(['lel','--tts'],stdin=subprocess.PIPE)
-					p.communicate(input=shutdownWarning)
-					globalPopenList.append(p)
-				except OSError:
-					print(shutdownWarning)
-				return ['sudo','shutdown','-h','1']
-			if  'cancel' in word:
-				shutdownWarning="Warning Cancel Shutdown."
-				print("\a\a\a")
-				try:
-					p= subprocess.Popen(['lel','--tts'],stdin=subprocess.PIPE)
-					p.communicate(input=shutdownWarning)
-					globalPopenList.append(p)
-				except OSError:
-					print(shutdownWarning)
-				return ['sudo','shutdown','-c']
+			if 'shut' in word:
+				if 'down' in word:
+					if  'cancel' in word:
+						shutdownWarning="Cancel Shutdown"
+						try:
+							p= subprocess.Popen(['festival','--tts'],stdin=subprocess.PIPE)
+							p.communicate(input=shutdownWarning)
+							globalPopenList.append(p)
+						except OSError:
+							print(shutdownWarning)
+						return ['sudo','shutdown','-c']
+
+					shutdownWarning="Warning system is going down for halt."
+					try:
+						p= subprocess.Popen(['festival','--tts'],stdin=subprocess.PIPE)
+						p.communicate(input=shutdownWarning)
+						globalPopenList.append(p)
+					except OSError:
+						print(shutdownWarning)
+					return ['sudo','shutdown','-h','1']
 
 		else:
 			festivalIn="Wrong I. D. please use one of.\n"
 			for each in self.ids:
 				festivalIn+=" "+each+".\n"
 			try:
-				p= subprocess.Popen(['lel','--tts'],stdin=subprocess.PIPE)
+				p= subprocess.Popen(['festival','--tts'],stdin=subprocess.PIPE)
 				p.communicate(input=festivalIn)
 				globalPopenList.append(p)
 			except OSError:
@@ -247,7 +245,7 @@ class CommandAndControl:
 				for each in command:
 					festivalIn += " "+each
 				try:
-					p = subprocess.Popen(['lel','--tts'],stdin=subprocess.PIPE)
+					p = subprocess.Popen(['festival','--tts'],stdin=subprocess.PIPE)
 					p.communicate(festivalIn)
 					globalPopenList.append(p)
 				except OSError:
