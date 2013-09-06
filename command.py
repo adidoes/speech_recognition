@@ -70,7 +70,8 @@ class Commands:
 					return ['amixer','set','Master','5%-']
 
 				if 'one' in word:
-					return ['amixer','set','Master','1%']
+					if not 'hundred' in word:
+						return ['amixer','set','Master','1%']
 				
 				if 'two' in word:
 					return ['amixer','set','Master','2%']
@@ -82,7 +83,8 @@ class Commands:
 					return ['amixer','set','Master','4%']
 
 				if 'five' in word:
-					return ['amixer','set','Master','5%']
+					if not 'twenty' in word and not 'thirty' in word and not 'fourty' in word and not 'fifty' in word and not 'sixty' in word and not 'seventy' in word and not 'eighty' in word and not 'ninety' in word:
+						return ['amixer','set','Master','5%']
 
 				if 'ten' in word:
 					return ['amixer','set','Master','10%']
