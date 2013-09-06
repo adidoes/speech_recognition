@@ -33,10 +33,20 @@ import subprocess
 
 globalPopenList = []
 
+def clearGlobalPopenList():
+	while len(globalPopenList) > 0:
+		p= globalPopenList.pop()
+		try:
+			p.kill()
+			p.wait()
+		except OSError:
+			pass
+
 class Commands:
 	name = "Commands"
-	ids = ['lux','lacer','alexia','pi']
-	
+	ids = ['lux','lacer']#,'alexia','pi']
+	i=0
+
 	def RunningMusic(self,player):
 		psOut = subprocess.check_output(['ps','aux'])
 		psOut = psOut.split()
@@ -44,10 +54,7 @@ class Commands:
 		while i<len(psOut):
 			psOut[i] = psOut[i].strip().lower()
 			i+=1
-		for each in psOut:
-			if each.find(player) >= 0:
-				print each,player
-		if player in psOut:
+		if player in psOut or "/usr/bin/"+player in psOut:
 			ret= True
 		else:
 			ret= False
@@ -55,6 +62,9 @@ class Commands:
 		return ret
 
 	def parse(self,word):
+		self.i+=1
+		if self.i%100 == 0:
+			clearGlobalPopenList()
 		if word[0] == 'error':
 			return None
 		if str(word[0]) in self.ids:
@@ -149,7 +159,7 @@ class Commands:
 			if 'next' in word:
 				if word[0] == 'lux' or word[0] == 'lacer': # rythmbox
 					if self.RunningMusic('rhythmbox'):
-						return ['rhythmbox-client',' --nopresent',' --next']
+						return ['rhythmbox-client','--no-present','--next']
 				if word[0] == 'alexia' or word[0] == 'pi':
 					return ['mpc','next']
 			
@@ -157,21 +167,21 @@ class Commands:
 			if 'prev' in word:
 				if word[0] == 'lux' or word[0] == 'lacer': # rythmbox
 					if self.RunningMusic("rhythmbox"):
-						return ['rhythmbox-client',' --nopresent',' --previous']
+						return ['rhythmbox-client','--no-present','--previous']
 				if word[0] == 'alexia' or word[0] == 'pi':
 					return ['mpc','prev']
 
 			if 'pause' in  word:
 				if word[0] == 'lux' or word[0] == 'lacer': # rythmbox
 					if self.RunningMusic("rhythmbox"):
-						return ['rhythmbox-client',' --nopresent',' --play-pause']
+						return ['rhythmbox-client','--no-present','--play-pause']
 				if word[0] == 'alexia' or word[0] == 'pi':
 					return ['mpc','toggle']
 
 			if 'stop' in word:
 				if word[0] == 'lux' or word[0] == 'lacer': # rythmbox
 					if self.RunningMusic("rhythmbox"):
-						return ['rhythmbox-client',' --nopresent',' --pause']
+						return ['rhythmbox-client','--no-present','--pause']
 				if word[0] == 'alexia' or word[0] == 'pi':
 					return ['mpc','stop']
 
@@ -196,6 +206,13 @@ class Commands:
 					except OSError:
 						print(shutdownWarning)
 					return ['sudo','shutdown','-h','1']
+			if 'quit' in word:
+				raise KeyboardInterrupt
+
+			
+			if 'clear' in word:
+				clearGlobalPopenList()
+				return None
 
 		else:
 			festivalIn="Wrong I. D. please use one of.\n"
@@ -233,14 +250,14 @@ class CommandAndControl:
 	def parse(self, line):
 		# Parse the input
 		params = [param.lower() for param in line.split() if param]
-		if not '-q' in sys.argv and not '--quiet' in sys.argv:
-			print 'Recognized input:', ' '.join(params).capitalize()
 		
 		# Execute the command, if recognized/supported
 		command = self.cmd.parse(params)
 		if command:
 			try:
-				print command
+				if not '-q' in sys.argv and not '--quiet' in sys.argv:
+					print 'Recognized input:', ' '.join(params).capitalize()
+
 				globalPopenList.append(subprocess.Popen(command,stdout=open("/dev/null"),stderr=open("/dev/null")))
 			except OSError:
 				festivalIn = "The following command cannot be executed in your system"
@@ -258,8 +275,6 @@ if __name__ == '__main__':
 	try:
 		CommandAndControl(sys.stdin)
 	except KeyboardInterrupt:
-		for each in globalPopenList:
-			each.kill()
-			each.wait()
+		clearGlobalPopenList()
 		sys.exit(1)
 		

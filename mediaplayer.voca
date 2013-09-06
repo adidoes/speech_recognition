@@ -10,6 +10,14 @@ CANCEL k ae n s ax l
 % DOWN
 DOWN d aw n
 
+%QUIT
+
+QUIT k w ih t
+
+%CLEAR
+
+CLEAR k l ih r
+
 % IDENTIFICATION
 ERROR ax
 ERROR m
@@ -19,15 +27,16 @@ ERROR ow
 ERROR k
 ERROR t
 LUX l uh k s
-LACER l ae s er
-ALEXIA ae l ax k s iy ax
-PI p ay
+LACER l ae z er
+#ALEXIA ae l ax k s iy ax
+#PI p ay
 
 % MPC_COMMANDS
 NEXT n eh k s t
 PREV p r iy v
 PAUSE p ao z
 PAUSE ax n p aw
+PAUSE p l ey
 STOP s t aa p
 
 % MUTE

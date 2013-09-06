@@ -2,52 +2,53 @@
 1	[</s>]	sil
 2	[CANCEL]	k ae n s ax l
 3	[DOWN]	d aw n
-4	[ERROR]	ax
-4	[ERROR]	m
-4	[ERROR]	eh
-4	[ERROR]	s
-4	[ERROR]	ow
-4	[ERROR]	k
-4	[ERROR]	t
-4	[LUX]	l uh k s
-4	[LACER]	l ae s er
-4	[ALEXIA]	ae l ax k s iy ax
-4	[PI]	p ay
-5	[NEXT]	n eh k s t
-5	[PREV]	p r iy v
-5	[PAUSE]	p ao z
-5	[PAUSE]	ax n p aw
-5	[STOP]	s t aa p
-6	[MUTE]	m y uw
-6	[MUTE]	ax n m uw d
-6	[MUTE]	s ay l ax n s
-6	[MUTE]	sh ah t ax b
-7	[PERCENT]	p er s eh n t
-8	[SET]	s eh t
-8	[PLAY]	p l ey
-8	[TOGGLE]	t aa g ax l
-8	[MUSIC]	m y uw z ix k
-9	[SONG]	s ao ng
-10	[SHUT]	sh ah t
-11	[VOLUME]	v aa l y uw m
-12	[UP]	ah p
-12	[DOWN]	d aw n
-13	[ONE]	w ah n
-14	[HUNDRED]	hh ah n d r ax d
-14	[HUNDRED]	f uh l
-15	[FIVE]	f ay v
-16	[ONE]	w ah n
-16	[TWO]	t uw
-16	[THREE]	th r iy
-16	[FOUR]	f ao r
-16	[FIVE]	f ay v
-16	[TEN]	t eh n
-16	[FIFTEEN]	f ix f t iy n
-17	[TWENTY]	t w eh n t iy
-17	[THIRTY]	th er dx iy
-17	[FORTY]	f ao r dx iy
-17	[FIFTY]	f ih f t iy
-17	[SIXTY]	s ih k s t iy
-17	[SEVENTY]	s eh v ax n t iy
-17	[EIGHTY]	ey dx iy
-17	[NINTY]	n ay n t iy
+4	[QUIT]	k w ih t
+5	[CLEAR]	k l ih r
+6	[ERROR]	ax
+6	[ERROR]	m
+6	[ERROR]	eh
+6	[ERROR]	s
+6	[ERROR]	ow
+6	[ERROR]	k
+6	[ERROR]	t
+6	[LUX]	l uh k s
+6	[LACER]	l ae z er
+7	[NEXT]	n eh k s t
+7	[PREV]	p r iy v
+7	[PAUSE]	p ao z
+7	[PAUSE]	ax n p aw
+7	[PAUSE]	p l ey
+7	[STOP]	s t aa p
+8	[MUTE]	m y uw
+8	[MUTE]	ax n m uw d
+8	[MUTE]	s ay l ax n s
+8	[MUTE]	sh ah t ax b
+9	[PERCENT]	p er s eh n t
+10	[SET]	s eh t
+10	[PLAY]	p l ey
+10	[TOGGLE]	t aa g ax l
+10	[MUSIC]	m y uw z ix k
+11	[SONG]	s ao ng
+12	[SHUT]	sh ah t
+13	[VOLUME]	v aa l y uw m
+14	[UP]	ah p
+14	[DOWN]	d aw n
+15	[ONE]	w ah n
+16	[HUNDRED]	hh ah n d r ax d
+16	[HUNDRED]	f uh l
+17	[FIVE]	f ay v
+18	[ONE]	w ah n
+18	[TWO]	t uw
+18	[THREE]	th r iy
+18	[FOUR]	f ao r
+18	[FIVE]	f ay v
+18	[TEN]	t eh n
+18	[FIFTEEN]	f ix f t iy n
+19	[TWENTY]	t w eh n t iy
+19	[THIRTY]	th er dx iy
+19	[FORTY]	f ao r dx iy
+19	[FIFTY]	f ih f t iy
+19	[SIXTY]	s ih k s t iy
+19	[SEVENTY]	s eh v ax n t iy
+19	[EIGHTY]	ey dx iy
+19	[NINTY]	n ay n t iy
