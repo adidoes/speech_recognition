@@ -35,19 +35,159 @@ globalPopenList = []
 
 class Commands:
 	name = "Commands"
-	id = ['lux','lacer','alexia','computer','pi','schatz']
+	ids = ['lux','lacer','alexia','pi']
+	
+	def RunningMusic(self,player):
+		psOut = subprocess.check_output(['ps','aux'])
+		psOut = psOut.split(" ")
+		i=0
+		while i<len(psOut):
+			psOut[i] = psOut[i].strip().lower()
+			i+=1
+		for each in psOut:
+			if each.find(player) >= 0:
+				print each
+		if player in psOut:
+			return True
+		else:
+			return False
 
-
-	commands = {
-		'mute': ['amixer','set','Master','toggle'] #Hier sollte der command in der formatierung fuer subprocess.Popen() stehen
-		}
 
 	def parse(self,word):
-		
-		if word[0] in id:
-			pass
+		if word[0] == 'error':
+			return None
+		if str(word[0]) in self.ids:
+			
+#MUTE
+			if 'mute' in word:
+				return ['amixer','set','Master','toggle']
+
+# VOLUME
+			if 'volume' in word:
+				if 'up' in word:
+					return ['amixer','set','Master','5%+']
+				if 'down' in word:
+					return ['amixer','set','Master','5%-']
+
+				if 'one' in word:
+					return ['amixer','set','Master','1%']
+				
+				if 'two' in word:
+					return ['amixer','set','Master','2%']
+
+				if 'three' in word:
+					return ['amixer','set','Master','3%']
+
+				if 'four' in word:
+					return ['amixer','set','Master','4%']
+
+				if 'five' in word:
+					return ['amixer','set','Master','5%']
+
+				if 'ten' in word:
+					return ['amixer','set','Master','10%']
+
+				if 'fifteen' in word:
+					return ['amixer','set','Master','15%']
+
+				if 'twenty' in word:
+					if 'five' in word:
+						return ['amixer','set','Master','25%']
+					else:
+						return ['amixer','set','Master','20%']
+
+				if 'thirty' in word:
+					if 'five' in word:
+						return ['amixer','set','Master','35%']
+					else:
+						return ['amixer','set','Master','30%']
+
+				if 'fourty' in word:
+					if 'five' in word:
+						return ['amixer','set','Master','45%']
+					else:
+						return ['amixer','set','Master','40%']
+
+				if 'fifty' in word:
+					if 'five' in word:
+						return ['amixer','set','Master','55%']
+					else:
+						return ['amixer','set','Master','50%']
+
+				if 'sixty' in word:
+					if 'five' in word:
+						return ['amixer','set','Master','65%']
+					else:
+						return ['amixer','set','Master','60%']
+
+				if 'seventy' in word:
+					if 'five' in word:
+						return ['amixer','set','Master','75%']
+					else:
+						return ['amixer','set','Master','70%']
+
+				if 'eighty' in word:
+					if 'five' in word:
+						return ['amixer','set','Master','85%']
+					else:
+						return ['amixer','set','Master','80%']
+
+				if 'ninety' in word:
+					if 'five' in word:
+						return ['amixer','set','Master','95%']
+					else:
+						return ['amixer','set','Master','90%']
+
+				if 'hundred' in word:
+					return ['amixer','set','Master','100%']
+
+
+#Music Player Options					
+#NEXT
+			if 'next' in word:
+				if word[0] == 'lux' or word[0] == 'lacer': # rythmbox
+					if self.RunningMusic("rhythmbox"):
+						return ['rhythmbox-client',' --nopresent',' --next']
+				if word[0] == 'alexia' or word[0] == 'pi':
+					return ['mpc','next']
+			
+
+			if 'prev' in word:
+				if word[0] == 'lux' or word[0] == 'lacer': # rythmbox
+					if self.RunningMusic("rhythmbox"):
+						return ['rhythmbox-client',' --nopresent',' --previous']
+				if word[0] == 'alexia' or word[0] == 'pi':
+					return ['mpc','prev']
+
+			if 'pause' in  word:
+				if word[0] == 'lux' or word[0] == 'lacer': # rythmbox
+					if self.RunningMusic("rhythmbox"):
+						return ['rhythmbox-client',' --nopresent',' --play-pause']
+				if word[0] == 'alexia' or word[0] == 'pi':
+					return ['mpc','toggle']
+
+			if 'stop' in word:
+				if word[0] == 'lux' or word[0] == 'lacer': # rythmbox
+					if self.RunningMusic("rhythmbox"):
+						return ['rhythmbox-client',' --nopresent',' --pause']
+				if word[0] == 'alexia' or word[0] == 'pi':
+					return ['mpc','stop']
+			
+			
+
 		else:
-			globalPopenList.append(subprocess.Popen(
+			festivalIn="Wrong I. D. please use one of.\n"
+			for each in self.ids:
+				festivalIn+=" "+each+".\n"
+			try:
+				p= subprocess.Popen(['lel','--tts'],stdin=subprocess.PIPE)
+				p.communicate(input=festivalIn)
+				globalPopenList.append(p)
+			except OSError:
+				print(festivalIn)
+
+		print(word)
+
 
 class CommandAndControl:
 	
@@ -66,7 +206,6 @@ class CommandAndControl:
 				print 'Error: Missing phonemes for the used grammar file.'
 				sys.exit(1)
 			if line.startswith(startstring) and line.strip().endswith(endstring):
-				print line
 				self.parse(line.strip('\n')[len(startstring):-len(endstring)])
 	
 	def parse(self, line):
@@ -76,15 +215,31 @@ class CommandAndControl:
 			print 'Recognized input:', ' '.join(params).capitalize()
 		
 		# Execute the command, if recognized/supported
-		print params
 		command = self.cmd.parse(params)
 		if command:
-#			os.system(command)
-			print "erkannt", command
-			print subprocess.Popen(command,stdout=open("/dev/null"),stderr=open("/dev/null"))
+			print "Eins"
+			try:
+				print "lal"
+				print command
+				globalPopenList.append(subprocess.Popen(command,stdout=open("/dev/null"),stderr=open("/dev/null")))
+			except OSError:
+				festivalIn = "The following command cannot be executed in your system"
+				for each in command:
+					festivalIn += " "+each
+				try:
+					p = subprocess.Popen(['lel','--tts'],stdin=subprocess.PIPE)
+					p.communicate(festivalIn)
+					globalPopenList.append(p)
+				except OSError:
+					print(festivalIn)
+			
 
 if __name__ == '__main__':
 	try:
 		CommandAndControl(sys.stdin)
 	except KeyboardInterrupt:
+		for each in globalPopenList:
+			each.kill()
+			each.wait()
 		sys.exit(1)
+		
