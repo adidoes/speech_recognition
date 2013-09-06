@@ -29,62 +29,25 @@
 
 import sys
 import os
+import subprocess
 
-class Rhythmbox:
-	
-	name = "Rhythmbox"
+
+class Commands:
+	name = "Commands"
 	
 	commands = {
-			'play': 'play',
-			'pause': 'pause',
-			'next': 'next',
-			'prev': 'previous',
-			'show': 'notify',
-			'pause': 'pause',
-			'silence': 'pause',
-	}
-	
-	def parse(self, word):
-		if word in self.commands:
-			return 'rhythmbox-client --%s' % self.commands[word]
+		'mute': ['amixer','set','Master','toggle'] #Hier sollte der command in der formatierung fuer subprocess.Popen() stehen
+		}
 
-class Banshee:
-	
-	name = "Banshee"
-	
-	commands = {
-			'play': 'play',
-			'pause': 'pause',
-			'stop': 'stop',
-			'next': 'next',
-			'prev': 'previous',
-			'pause': 'pause',
-			'silence': 'pause',
-	}
-	
-	def parse(self, word):
+	def parse(self,word):
 		if word in self.commands:
-			return 'banshee --no-present --%s %% ' % self.commands[word]
+			return self.commands[word]
 
 class CommandAndControl:
 	
 	def __init__(self, file_object):
 		
-		# Determine which media player to use
-		if os.system('ps xa | grep -v grep | grep banshee >/dev/null') == 0:
-			self.mediaplayer = Banshee()
-		elif os.system('ps xa | grep -v grep | grep rhythmbox >/dev/null') == 0:
-			self.mediaplayer = Rhythmbox()
-		elif os.system('which banshee >/dev/null') == 0:
-			self.mediaplayer = Banshee()
-			os.system('bash -c "nohup banshee >/dev/null 2>&1 <&1 & disown %%"')
-		elif os.system('which rhythmbox >/dev/null') == 0:
-			self.mediaplayer = Rhythmbox()
-		else:
-			print 'Couldn\'t find a supported media player. ' \
-				'Please install Rhythmbox or Banshee.'
-			sys.exit(1)
-		print 'Taking control of %s media player.' % self.mediaplayer.name
+		self.cmd = Commands()
 		
 		startstring = 'sentence1: <s> '
 		endstring = ' </s>'
@@ -97,6 +60,7 @@ class CommandAndControl:
 				print 'Error: Missing phonemes for the used grammar file.'
 				sys.exit(1)
 			if line.startswith(startstring) and line.strip().endswith(endstring):
+				print line
 				self.parse(line.strip('\n')[len(startstring):-len(endstring)])
 	
 	def parse(self, line):
@@ -106,11 +70,12 @@ class CommandAndControl:
 			print 'Recognized input:', ' '.join(params).capitalize()
 		
 		# Execute the command, if recognized/supported
-		command = self.mediaplayer.parse(params[1])
+		print params
+		command = self.cmd.parse(params[1])
 		if command:
-			os.system(command)
-		elif not '-q' in sys.argv and not '--quiet' in sys.argv:
-			print 'Command not supported by %s.' % self.mediaplayer.name
+#			os.system(command)
+			print "erkannt", command
+			print subprocess.Popen(command,stdout=open("/dev/null"),stderr=open("/dev/null"))
 
 if __name__ == '__main__':
 	try:
