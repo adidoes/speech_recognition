@@ -5,12 +5,14 @@
 </s> sil
 
 % ID
+ERROR                           ax
+ERROR                           m
+ERROR                           eh
 COMPUTER                        k ax m p y uw t ax
-MA'AM                           m ae m
 LUX                             l uh k s
 ALEXIA                          ae l ax k s iy ax
 
-% COMMAND
+% ACTIONS
 PLAY p l ey
 NEXT n eh k s t
 PREV p r iy v
@@ -18,3 +20,9 @@ MUTE m y uw
 SHOW sh ow
 PAUSE p ao z
 SILENCE s ay l ax n s
+VOLUME v aa l y uw m
+
+% VOLUME_ARGUMENTS
+UP ah p
+DOWN d aw n
+
