@@ -4,6 +4,12 @@
 % NS_E
 </s> sil
 
+% ABORT
+CANCEL k ae n s ax l
+
+% DOWN
+DOWN d aw n
+
 % IDENTIFICATION
 ERROR ax
 ERROR m
@@ -17,14 +23,15 @@ ALEXIA ae l ax k s iy ax
 PI p ay
 
 % MPC_COMMANDS
-PLAY p l ey
 NEXT n eh k s t
 PREV p r iy v
 PAUSE p ao z
+PAUSE ax n p aw
 STOP s t aa p
 
 % MUTE
 MUTE m y uw
+MUTE ax n m uw d
 MUTE s ay l ax n s
 MUTE sh ah t ax b
 
@@ -33,11 +40,15 @@ PERCENT p er s eh n t
 
 % SET
 SET s eh t
+PLAY p l ey
 TOGGLE t aa g ax l
 MUSIC m y uw z ix k
 
 % SONG
 SONG s ao ng
+
+% SHUT
+SHUT sh ah t
 
 % VOLUME
 VOLUME v aa l y uw m
