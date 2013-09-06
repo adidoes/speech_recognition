@@ -194,7 +194,7 @@
 #-pausesegment		# turn on speech detection by level and zero-cross
 #-nopausesegment	# turn off speech detection by level and zero-cross
 			# (default: on for mic or adinnet, off for file)
-#-lv 2000		# threshold of input level (0-32767)
+-lv 15000		# threshold of input level (0-32767)
 #-headmargin 300	# head margin of input segment (msec)
 #-tailmargin 400	# tail margin of input segment (msec)
 #-zc 60			# threshold of number of zero-cross in a second
