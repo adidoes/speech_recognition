@@ -39,19 +39,20 @@ class Commands:
 	
 	def RunningMusic(self,player):
 		psOut = subprocess.check_output(['ps','aux'])
-		psOut = psOut.split(" ")
+		psOut = psOut.split()
 		i=0
 		while i<len(psOut):
 			psOut[i] = psOut[i].strip().lower()
 			i+=1
 		for each in psOut:
 			if each.find(player) >= 0:
-				print each
+				print each,player
 		if player in psOut:
-			return True
+			ret= True
 		else:
-			return False
-
+			ret= False
+			
+		return ret
 
 	def parse(self,word):
 		if word[0] == 'error':
@@ -146,7 +147,7 @@ class Commands:
 #NEXT
 			if 'next' in word:
 				if word[0] == 'lux' or word[0] == 'lacer': # rythmbox
-					if self.RunningMusic("rhythmbox"):
+					if self.RunningMusic('rhythmbox'):
 						return ['rhythmbox-client',' --nopresent',' --next']
 				if word[0] == 'alexia' or word[0] == 'pi':
 					return ['mpc','next']
@@ -172,8 +173,29 @@ class Commands:
 						return ['rhythmbox-client',' --nopresent',' --pause']
 				if word[0] == 'alexia' or word[0] == 'pi':
 					return ['mpc','stop']
-			
-			
+
+
+		if 'shut' in word:
+			if 'down' in word:
+				shutdownWarning="Warning system is going down for halt."
+				print("\a\a\a")
+				try:
+					p= subprocess.Popen(['lel','--tts'],stdin=subprocess.PIPE)
+					p.communicate(input=shutdownWarning)
+					globalPopenList.append(p)
+				except OSError:
+					print(shutdownWarning)
+				return ['sudo','shutdown','-h','1']
+			if  'cancel' in word:
+				shutdownWarning="Warning Cancel Shutdown."
+				print("\a\a\a")
+				try:
+					p= subprocess.Popen(['lel','--tts'],stdin=subprocess.PIPE)
+					p.communicate(input=shutdownWarning)
+					globalPopenList.append(p)
+				except OSError:
+					print(shutdownWarning)
+				return ['sudo','shutdown','-c']
 
 		else:
 			festivalIn="Wrong I. D. please use one of.\n"
@@ -217,9 +239,7 @@ class CommandAndControl:
 		# Execute the command, if recognized/supported
 		command = self.cmd.parse(params)
 		if command:
-			print "Eins"
 			try:
-				print "lal"
 				print command
 				globalPopenList.append(subprocess.Popen(command,stdout=open("/dev/null"),stderr=open("/dev/null")))
 			except OSError:
