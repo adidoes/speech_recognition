@@ -28,10 +28,16 @@ MUTE m y uw
 MUTE s ay l ax n s
 MUTE sh ah t ax b
 
+% PERCENT
+PERCENT p er s eh n t
+
 % SET
 SET s eh t
 TOGGLE t aa g ax l
 MUSIC m y uw z ix k
+
+% SONG
+SONG s ao ng
 
 % VOLUME
 VOLUME v aa l y uw m
@@ -42,8 +48,9 @@ DOWN d aw n
 
 % ONE
 ONE w ah n
-% HUNDRET
-HUNDRET hh ah n d r ax d
+% HUNDRED
+HUNDRED hh ah n d r ax d
+HUNDRED f uh l
 
 % FIVE
 FIVE f ay v

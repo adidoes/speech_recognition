@@ -18,27 +18,30 @@
 4	[MUTE]	m y uw
 4	[MUTE]	s ay l ax n s
 4	[MUTE]	sh ah t ax b
-5	[SET]	s eh t
-5	[TOGGLE]	t aa g ax l
-5	[MUSIC]	m y uw z ix k
-6	[VOLUME]	v aa l y uw m
-7	[UP]	ah p
-7	[DOWN]	d aw n
-8	[ONE]	w ah n
-9	[HUNDRET]	hh ah n d r ax d
-10	[FIVE]	f ay v
-11	[ONE]	w ah n
-11	[TWO]	t uw
-11	[THREE]	th r iy
-11	[FOUR]	f ao r
-11	[FIVE]	f ay v
-11	[TEN]	t eh n
-11	[FIFTEEN]	f ix f t iy n
-12	[TWENTY]	t w eh n t iy
-12	[THIRTY]	th er dx iy
-12	[FORTY]	f ao r dx iy
-12	[FIFTY]	f ih f t iy
-12	[SIXTY]	s ih k s t iy
-12	[SEVENTY]	s eh v ax n t iy
-12	[EIGHTY]	ey dx iy
-12	[NINTY]	n ay n t iy
+5	[PERCENT]	p er s eh n t
+6	[SET]	s eh t
+6	[TOGGLE]	t aa g ax l
+6	[MUSIC]	m y uw z ix k
+7	[SONG]	s ao ng
+8	[VOLUME]	v aa l y uw m
+9	[UP]	ah p
+9	[DOWN]	d aw n
+10	[ONE]	w ah n
+11	[HUNDRED]	hh ah n d r ax d
+11	[HUNDRED]	f uh l
+12	[FIVE]	f ay v
+13	[ONE]	w ah n
+13	[TWO]	t uw
+13	[THREE]	th r iy
+13	[FOUR]	f ao r
+13	[FIVE]	f ay v
+13	[TEN]	t eh n
+13	[FIFTEEN]	f ix f t iy n
+14	[TWENTY]	t w eh n t iy
+14	[THIRTY]	th er dx iy
+14	[FORTY]	f ao r dx iy
+14	[FIFTY]	f ih f t iy
+14	[SIXTY]	s ih k s t iy
+14	[SEVENTY]	s eh v ax n t iy
+14	[EIGHTY]	ey dx iy
+14	[NINTY]	n ay n t iy
