@@ -44,7 +44,7 @@ def clearGlobalPopenList():
 
 class Commands:
 	name = "Commands"
-	ids = ['lux','lacer']#,'alexia','pi']
+	ids = ['lux','lacer','alexia','pi']
 	i=0
 
 	def RunningMusic(self,player):
