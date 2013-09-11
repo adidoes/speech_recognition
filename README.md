@@ -6,8 +6,17 @@ Speech recognition: Using julius and voxforge
 Usage of the basic and shutdown program
 =======================================
 
+First the grammar and vocabulary need compilation. To compile the 
+mkdfa.pl script should be used. Note: On Ubuntu it is called mkdfa 
+in stead of mkdfa.pl.
+```
+mkdfa.pl basics_and_shutdown
+```
+
 Run julius with the control script as
+```
 julius -C basics_and_shutdown.jconf | ./basics_and_shutdown.py
+```
 
 Currently the syntax requires you to identify your computer as Lux 
 (spoken as: looks), Lacer (spoken as: lazer), Alexia, or Pi.
@@ -29,7 +38,7 @@ mute executes the commands amixer set Master toggle. Synonyms are:
 
 Music Player Commands
 ---------------------
-The command.py script separates whether Alexia,Pi, or Lux,Lacer is used 
+The command script separates whether Alexia,Pi, or Lux,Lacer is used 
 for identification. For Alexia and Pi, the commands correspond to the 
 respective mpc commands. For Lux and Lacer, rhythmbox is used.
 
@@ -54,4 +63,15 @@ line to your /etc/sudoers file. Replace user_name appropriately.
 ```
 %user_name ALL=(ALL) NOPASSWD: /sbin/poweroff /sbin/reboot /sbin/shutdown
 ```
+ISSUES
+======
 
+Currently we are unable to prevent julius from outputing the most likely 
+command if no good match is found. Due to this reason the ID tag 
+contains a number of ERROR outputs. This works for the moment.
+
+The second big issue we encountered is due to to ambient noise level. 
+Julius does not differentiate between sound output coming from the 
+computer and external sounds. Using headphones there is no issue however 
+with satellites louder volume can obstruct the required <sil> tag at the 
+beginning and end each identification.

@@ -3,7 +3,7 @@
 #
 # Command and Control Application for Julius
 #
-# How to use it:
+# How to use it: (NOTE: THIS IS NOT CORRECT. CHECK THE README.md, blut)
 #  julius -quiet -input mic -C julian.jconf 2>/dev/null | ./command.py
 #
 # Copyright (C) 2008, 2009 Siegfried-Angel Gevatter Pujals <rainct@ubuntu.com>
@@ -20,12 +20,6 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-# Supported commands:
-#
-# This file is provided as an example, and should be modified to suit
-# your needs. As is, it only supports a few commands and executes them on
-# either Rhythmbox or Banshee.
 
 import sys
 import os
