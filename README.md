@@ -18,6 +18,8 @@ Run julius with the control script as
 julius -C basics_and_shutdown.jconf | ./basics_and_shutdown.py
 ```
 
+As you can see the control script is written in python v2.
+
 Currently the syntax requires you to identify your computer as Lux 
 (spoken as: looks), Lacer (spoken as: lazer), Alexia, or Pi.
 
