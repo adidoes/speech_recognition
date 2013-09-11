@@ -87,7 +87,7 @@ class Commands:
 					return ['amixer','set','Master','4%']
 
 				if 'five' in word:
-					if not 'twenty' in word and not 'thirty' in word and not 'fourty' in word and not 'fifty' in word and not 'sixty' in word and not 'seventy' in word and not 'eighty' in word and not 'ninety' in word:
+					if not 'twenty' in word and not 'thirty' in word and not 'fourty' in word and not 'fifty' in word and not 'sixty' in word and not 'seventy' in word and not 'eighty' in word and not 'ninty' in word:
 						return ['amixer','set','Master','5%']
 
 				if 'ten' in word:
@@ -138,7 +138,7 @@ class Commands:
 					else:
 						return ['amixer','set','Master','80%']
 
-				if 'ninety' in word:
+				if 'ninty' in word:
 					if 'five' in word:
 						return ['amixer','set','Master','95%']
 					else:
