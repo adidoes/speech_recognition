@@ -33,8 +33,8 @@
 #-gramlist file
 
 #### (3) Classic way to specify a grammar.
--dfa mediaplayer.dfa
--v mediaplayer.dict
+-dfa basics_and_shutdown.dfa
+-v basics_and_shutdown.dict
 
 #### If you want to clear previously specified grammars, use this at the
 #### point.
