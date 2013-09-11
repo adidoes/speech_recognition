@@ -3,11 +3,14 @@ speech_recognition
 
 Speech recognition: Using julius and voxforge
 
-Usage
-=====
+Usage of the basic and shutdown program
+=======================================
+
+Run julius with the control script as
+julius -C basics_and_shutdown.jconf | ./basics_and_shutdown.py
 
 Currently the syntax requires you to identify your computer as Lux 
-(spoken as: looks), Lacer (spoken as: laser), Alexia, Pi, or Schatz.
+(spoken as: looks), Lacer (spoken as: lazer), Alexia, or Pi.
 
 After the identification follows a command. The following commands are 
 possible:
